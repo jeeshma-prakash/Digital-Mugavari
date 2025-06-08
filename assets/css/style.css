@@ -95,7 +95,7 @@ body {
     height: 100vh;
     overflow: hidden;
     /* hide horizontal overflow */
-}
+} 
 
 .horizontal-container {
     display: flex;
@@ -110,7 +110,10 @@ body {
 }
 .img-fluid{
     border-radius: 30px;
-}
+} 
+
+
+
 
 /* service section */
 
