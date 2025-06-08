@@ -19,8 +19,6 @@
     });
 
 
-
-
   const widgetButton = document.getElementById("openWidget");
   const widgetForm = document.getElementById("widgetForm");
   const progressCircle = document.getElementById("progressCircle");
