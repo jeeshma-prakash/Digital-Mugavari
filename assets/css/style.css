@@ -13,8 +13,7 @@ body {
 
 }
 
-html,
-body {
+html{
     margin: 0;
     padding: 0;
     height: 100%;
@@ -64,7 +63,7 @@ body {
 
 /* hero section */
 .hero-section {
-    min-height: 55vh;
+    /* min-height: 55vh; */
     display: flex;
     align-items: center;
 }
@@ -89,6 +88,126 @@ body {
 .headline span {
     color: var(--primary-color);
 }
+
+/* floating widget */
+.widget-button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #111111e6;
+      color: #ffffffc7;
+      border-radius: 1.5rem;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 9999;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .widget-button:hover {
+        color: #ffffff;
+        background-color: black;
+    }
+    .circle-progress {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: conic-gradient( 0%, rgb(251, 5, 5) 100%, rgb(68, 68, 68) 100%, rgb(68, 68, 68) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1px;
+      color: rgb(255, 0, 0);
+    }
+    .circle-progress[data-progress="0"] {
+      display: none !important;
+    }
+    .back{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    .floating-widget {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      transition: transform 0.4s ease-in-out;
+      background-color: #000;
+      color: white;
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+    }
+
+    .floating-widget.show {
+      transform: translateX(-50%) scale(1);
+    }
+
+    .list-group-item {
+      cursor: pointer;
+      background-color: #000;
+      color: white;
+      border: none;
+      margin: 1rem;
+    }
+    .list-group-item:hover{
+      background-color: black;
+      color: red;
+    }
+
+    .list-group-item.active {
+      background-color: #fb2205 !important;
+      color: black;
+    }
+
+    .step-nav {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .back-btn {
+      background-color: transparent;
+      color: white;
+    }
+     .back-btn:hover{
+      background-color: transparent;
+      color: white;
+
+     }
+    .btn.btn-list{
+        line-height: 3rem;
+        color: white;
+        margin-top: 1rem;
+        text-align: center;       
+    }
+
+     .btn-check:focus+.btn, .btn:focus {
+        outline: none;
+        box-shadow: none;
+        color: #000000da;
+        background-color: #fb0505da;
+     }
+
+    .continue-btn {
+      background-color: #fb0505da;
+      color: black;
+      border: none;
+    }
+
+    .tab-content > .tab-pane {
+      display: none;
+    }
+
+    .tab-content > .active {
+      display: block;
+    }
 
 /* Horizontal scroll section styling */
 
@@ -122,6 +241,10 @@ body {
     background-color: var(--primary-color);
     border-radius: 15px;
     padding: 20px;
+    position: relative;
+    padding-bottom: 80px;
+    z-index: 1;
+   
 }
 
 .container-fluid .service-content .service-title {
