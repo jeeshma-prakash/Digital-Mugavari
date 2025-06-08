@@ -90,6 +90,7 @@ body {
 }
 
 /* Horizontal scroll section styling */
+
 .horizontal-section {
     position: relative;
     height: 100vh;
@@ -111,9 +112,6 @@ body {
 .img-fluid{
     border-radius: 30px;
 } 
-
-
-
 
 /* service section */
 
