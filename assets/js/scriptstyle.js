@@ -19,56 +19,111 @@
     });
 
 
-  const widgetButton = document.getElementById("openWidget");
-  const widgetForm = document.getElementById("widgetForm");
-  const progressCircle = document.getElementById("progressCircle");
+   const toggle = document.getElementById("toggleWidget");
+    const box = document.getElementById("widgetBox");
+    const steps = document.querySelectorAll(".widget-step");
 
-  let progress = 0;
-  let lastSelected = "";
+    // Selected values
+    let selectedMain = null;
+    let selectedServiceBtn = null;
 
-  widgetButton.addEventListener("click", () => {
-    widgetForm.classList.toggle("show");
-  });
-
-  function updateProgress(p) {
-  progress = p;
-  progressCircle.setAttribute("data-progress", p); // Add this line
-  progressCircle.textContent = `${p}%`;
-  progressCircle.style.background = `conic-gradient(#F70d1a 0% ${p}%, #444 ${p}% 100%)`;
-}
-
-
-  function nextStep(id) {
-    document.querySelectorAll(".tab-pane").forEach(el => el.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-    let prog = 0;
-    switch (id) {
-      case 'step1': prog = 0; break;
-      case 'step2': prog = 20; break;
-      case 'hire':
-      case 'build':
-      case 'redesign': prog = 50; break;
-      case 'finalForm': prog = 100; break;
-    }
-    updateProgress(prog);
-  }
-
-  // Step 2 logic
-  const options = document.querySelectorAll("#step2 .list-group-item");
-  let selectedOption = null;
-
-  options.forEach(item => {
-    item.addEventListener("click", () => {
-      options.forEach(i => i.classList.remove("active"));
-      item.classList.add("active");
-      selectedOption = item.getAttribute("data-next");
-      lastSelected = selectedOption;
-      document.getElementById("step2Continue").disabled = false;
+    toggle.addEventListener("click", () => {
+      if (box.classList.contains("show")) {
+        closeWidget();
+      } else {
+        openWidget();
+      }
     });
-  });
 
-  document.getElementById("step2Continue").addEventListener("click", () => {
-    if (selectedOption) {
-      nextStep(selectedOption);
+    function openWidget() {
+      box.classList.remove("hide");
+      box.classList.add("show");
+      resetWidget();
+      goToStep('step1');
+      // Listen for outside clicks
+      document.addEventListener("click", outsideClickListener);
     }
-  });
+
+    function closeWidget() {
+      box.classList.remove("show");
+      box.classList.add("hide");
+      resetWidget();
+      // Remove outside click listener to avoid memory leaks
+      document.removeEventListener("click", outsideClickListener);
+    }
+
+    // Reset widget to initial state
+    function resetWidget() {
+      goToStep('step1');
+
+      // Reset selections on step 2
+      selectedMain = null;
+      document.getElementById("toService").disabled = true;
+      document.querySelectorAll("#mainOptions .option-btn").forEach(btn => btn.classList.remove("active"));
+
+      // Reset selections on step 3
+      selectedServiceBtn = null;
+      document.getElementById("toForm").disabled = true;
+      document.getElementById("serviceOptions").innerHTML = "";
+      document.getElementById("serviceHeader").textContent = "Select a service";
+    }
+
+    // Close widget if clicked outside of widget box or toggle button
+    function outsideClickListener(event) {
+      if (!box.contains(event.target) && !toggle.contains(event.target)) {
+        closeWidget();
+      }
+    }
+
+    function goToStep(stepId) {
+      steps.forEach(step => step.classList.add("hide"));
+      document.getElementById(stepId).classList.remove("hide");
+    }
+
+    // Step 2 logic
+    const mainOptions = document.querySelectorAll("#mainOptions .option-btn");
+    mainOptions.forEach(btn => {
+      btn.addEventListener("click", () => {
+        mainOptions.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedMain = btn.getAttribute("data-value");
+        document.getElementById("toService").disabled = false;
+        populateServiceOptions(selectedMain);
+      });
+    });
+
+    // Step 3 logic
+    function populateServiceOptions(key) {
+      const services = {
+        seo: ["On-page SEO", "Technical SEO", "Local SEO", "SEO Audit"],
+        web: ["Landing Page", "Corporate Site", "eCommerce Site", "Maintenance"],
+        smm: ["Instagram Strategy", "Post Design", "Hashtag Research", "Profile Optimization"],
+        pm: ["Google Ads", "Meta Ads", "Retargeting", "Conversion Optimization"],
+        graphic: ["Logo Design", "Brochure Design", "Social Media Banners", "Presentation Decks"],
+        influencer: ["Instagram Collab", "Micro Influencer Campaign", "YouTube Review", "Event Shoutouts"],
+        branding: ["Visual Identity", "Brand Guidelines", "Tone of Voice", "Positioning Strategy"],
+        dm: ["Full Digital Strategy", "Email Marketing", "Funnel Setup", "Analytics & Insights"]
+      };
+
+      const serviceDiv = document.getElementById("serviceOptions");
+      const header = document.getElementById("serviceHeader");
+
+      header.textContent = "Select a service in " + key.toUpperCase();
+      serviceDiv.innerHTML = "";
+
+      services[key].forEach((s, index) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.textContent = `${index + 1}. ${s}`;
+        btn.setAttribute("type", "button");
+
+        btn.addEventListener("click", () => {
+          // Remove active from all siblings
+          Array.from(serviceDiv.children).forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById("toForm").disabled = false;
+          selectedServiceBtn = s;
+        });
+        serviceDiv.appendChild(btn);
+      });
+    }
