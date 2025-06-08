@@ -37,18 +37,17 @@ html{
 }
 
 .logo-img {
-    width: 65px;
+    width: 3rem;
 }
 
 .logo-text {
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    font-weight: bold;
     font-style: normal;
     color: #333;
 }
 
 .connect-link {
-    font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
     top: 1rem;
