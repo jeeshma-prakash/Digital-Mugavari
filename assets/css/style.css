@@ -231,15 +231,17 @@
 
 /* Work Section */
 .work-section {
+    background-color: var(--primary-color);
+    border-radius: 25px;
     padding: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .work-content {
-    background-color: var(--primary-color);
-    border-radius: 15px;
-    padding: 2rem;
-    padding-top: 4rem;
+    /* background-color: var(--primary-color); */
+    /* border-radius: 15px; */
+    padding: 1rem;
+    padding-top: 3rem;
     /* position: relative; */
 }
 
