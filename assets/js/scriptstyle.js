@@ -1,25 +1,5 @@
- window.addEventListener('load', function() {
-      gsap.registerPlugin(ScrollTrigger);
-      const section = document.querySelector(".horizontal-section");
-      const container = section.querySelector(".horizontal-container");
-      // Calculate how far to scroll: (total width of images) - (viewport width)
-      const scrollDistance = container.scrollWidth - window.innerWidth;
-      // Animate the container's X from 0 to -scrollDistance on scroll
-      gsap.to(container, {
-        x: -scrollDistance,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${scrollDistance}`,
-          pin: true,
-          scrub: true
-        }
-      });
-    });
 
-
-   const toggle = document.getElementById("toggleWidget");
+    const toggle = document.getElementById("toggleWidget");
     const box = document.getElementById("widgetBox");
     const steps = document.querySelectorAll(".widget-step");
 
@@ -127,3 +107,48 @@
         serviceDiv.appendChild(btn);
       });
     }
+
+
+
+    
+$(window).scroll(function () {
+  var scrollTop = $(window).scrollTop();
+  var docHeight = $(document).height();
+  var windowHeight = $(window).height();
+  var scrollBottom = docHeight - (scrollTop + windowHeight);
+
+  var scale;
+
+  if (scrollBottom < 200) {
+    // Zoom out near bottom of page
+    scale = Math.max(1, 1.3 - (200 - scrollBottom) / 300); // smoothly reduce
+  } else {
+    // Zoom in during normal scroll
+    scale = Math.min(1.3, 1 + scrollTop / 1000);
+  }
+
+  $('.zoom img').css({
+    transform: "scale(" + scale + ")"
+  });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const target = document.querySelector("#image-left");
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
+        target.classList.add("expand");
+      } else {
+        target.classList.remove("expand");
+      }
+    },
+    {
+      threshold: [0, 0.25, 0.5, 1]
+    }
+  );
+
+  observer.observe(target);
+});

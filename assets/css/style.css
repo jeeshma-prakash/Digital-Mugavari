@@ -6,19 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-
-}
-
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
 :root {
     --primary-color: #E42320;
     --white-color: #ffffff;
@@ -27,10 +14,10 @@ html {
 }
 
 /* header section */
-.container-fluid {
+/* .container-fluid {
     background-color: var(--white-color);
     height: 5rem;
-}
+} */
 
 .logo {
     display: flex;
@@ -61,8 +48,8 @@ html {
 }
 
 /* hero section */
+
 .hero-section {
-    /* min-height: 55vh; */
     display: flex;
     align-items: center;
 }
@@ -90,212 +77,222 @@ html {
 
 /* floating widget */
 
-.widget-section{
-     font-family: 'Poppins', sans-serif;
-}
- .widget-toggle {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #2c2424;
-      color: #ccc;
-      border-radius: 2rem;
-      padding: 0.6rem 1.2rem 0.6rem 1.2rem;
-      display: flex;
-      align-items: center;
-      /* gap: 15px; */
-      z-index: 9999;
-      cursor: pointer;
-      font-size: 0.95rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    }
-
-    .widget-toggle i {
-      background: #1c1b1b;
-      color: #ffffff;
-      padding: 15px;
-      border-radius: 30%;
-    }
-
-    .widget-box {
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%) scale(0);
-      background-color: #111;
-      color: #fff;
-      border-radius: 24px;
-      width: 90%;
-      max-width: 700px;
-      padding: 2rem;
-      z-index: 9998;
-      transition: transform 0.3s ease;
-    }
-
-    .widget-box.show {
-      transform: translateX(-50%) scale(1);
-    }
-
-    .widget-box.hide {
-      display: none !important; /* Ensure fully hidden */
-    }
-
-    .widget-box h5 {
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
-
-    .option-btn {
-      background: transparent;
-      border: none;
-      color: #ccc;
-      text-align: left;
-      padding: 12px 0;
-      width: 100%;
-      font-size: 1rem;
-      border-bottom: 1px solid #333;
-      cursor: pointer;
-    }
-
-    .option-btn.active,
-    .option-btn:hover {
-      color: #e42320;
-    }
-
-    .nav-controls {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-    }
-
-    .circle-btn {
-      background: #1c1b1b;
-      padding: 0.8rem;
-      border-radius: 12px;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    .continue-btn {
-      background: #e42320;
-      color: #000;
-      border-radius: 12px;
-      padding: 0.6rem 1.5rem;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .form-control {
-      background-color: #222;
-      border: 1px solid #333;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .form-control::placeholder {
-      color: #888;
-    }
-
-    .hide {
-      display: none;
-    }
-
-    /* Step 3 service options as grid - 2 columns on md+, 1 on smaller */
-    #serviceOptions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      #serviceOptions {
-        grid-template-columns: 1fr 1fr;
-      }
-      /* Optional: add some spacing inside buttons */
-      #serviceOptions .option-btn {
-        padding-left: 1rem;
-      }
-    }
-
-
-
-/* Horizontal scroll section styling */
-
-.horizontal-section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    /* hide horizontal overflow */
+.widget-section {
+    font-family: 'Poppins', sans-serif;
 }
 
-.horizontal-container {
+.widget-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1c1b1b;
+    color: #ccc;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     display: flex;
-    flex-wrap: nowrap;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.widget-toggle i {
+    background: #1c1b1b;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 30%;
+}
+
+.widget-box {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: #111;
+    color: #fff;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 700px;
+    padding: 2rem;
+    z-index: 9998;
+    transition: transform 0.3s ease;
+}
+
+.widget-box.show {
+    transform: translateX(-50%) scale(1);
+}
+
+.widget-box.hide {
+    display: none !important;
+    /* Ensure fully hidden */
+}
+
+.widget-box h5 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.option-btn {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    text-align: left;
+    padding: 12px 0;
+    width: 100%;
+    font-size: 1rem;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+}
+
+.option-btn.active,
+.option-btn:hover {
+    color: #e42320;
+}
+
+.nav-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.circle-btn {
+    background: #1c1b1b;
+    padding: 0.8rem;
+    border-radius: 12px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.continue-btn {
+    background: #e42320;
+    color: #000;
+    border-radius: 12px;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-control {
+    background-color: #222;
+    border: 1px solid #333;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.form-control::placeholder {
+    color: #888;
+}
+
+.hide {
+    display: none;
+}
+
+/* Step 3 service options as grid - 2 columns on md+, 1 on smaller */
+#serviceOptions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    #serviceOptions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Optional: add some spacing inside buttons */
+    #serviceOptions .option-btn {
+        padding-left: 1rem;
+    }
+}
+
+
+.zoom {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.zoom img {
+    /* position: absolute; */
+    width: 100%;
     height: 100%;
-}
-
-.horizontal-container img {
-    width: 100vw;
-    height: 90vh;
-    margin-right: 2%;
+    border-radius: 40px;
     object-fit: cover;
+    transition: transform 0.5s ease-out;
+    transform-origin: center center;
+    /* Center the scaling */
 }
 
-.img-fluid {
-    border-radius: 30px;
+/* Work Section */
+.work-section {
+    padding: 2rem;
+    margin-bottom: 1rem;
 }
 
-
-/* service section */
-
-.container-fluid .service-content {
+.work-content {
     background-color: var(--primary-color);
     border-radius: 15px;
-    padding: 20px;
-    position: relative;
-    padding-bottom: 80px;
-    z-index: 1;
-
+    padding: 2rem;
+    padding-top: 4rem;
+    /* position: relative; */
 }
 
-.container-fluid .service-content .service-title {
+.work-title {
     font-family: "Poppins", sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+    color: #222;
 }
 
-/* moving service */
+/* Marquee wrapper with fade edges */
+.marquee-wrapper {
+    /* position: relative; */
+    overflow: hidden;
+    padding: 3rem 0;
+}
 
 .marquee-container {
-    width: 100%;
     overflow: hidden;
-    background-color: var(--primary-color);
-    padding-top: 5rem;
+    white-space: nowrap;
 }
 
 .marquee-content {
     display: flex;
-    width: max-content;
-    animation: scroll-marquee 30s linear infinite;
+    animation: scroll-marquee 25s linear infinite;
 }
 
 .marquee-content span {
-    margin-right: 50px;
-    white-space: nowrap;
+    margin-right: 4rem;
     font-weight: 600;
-    font-size: 1.4rem;
-    color: rgb(55, 54, 54);
+    font-size: 1.25rem;
+    color: var(--text-color);
     font-family: 'Helvetica Neue', sans-serif;
 }
 
-/* Animation: scroll continuously left */
+
+
+/* Responsive font size */
+@media (max-width: 768px) {
+    .work-title {
+        font-size: 1.8rem;
+        text-align: left;
+    }
+
+    .marquee-content span {
+        font-size: 1rem;
+        margin-right: 2rem;
+    }
+}
+
 @keyframes scroll-marquee {
     0% {
         transform: translateX(0%);
@@ -306,20 +303,54 @@ html {
     }
 }
 
+.digital-section {
+    padding: 10px;
+    background-color: #fff;
+
+}
+
+.digital-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    max-width: 1200px;
+}
+
+.digital-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.digital-item-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #a1a1a1;
+    width: 50px;
+    padding-right: 1.5rem;
+}
+
+.digital-item-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #111;
+}
+
+.border-bottom-line {
+    border-bottom: 2px solid #eee;
+}
+
+@media (max-width: 767px) {
+    .digital-item {
+        margin-bottom: 30px;
+    }
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+/* Responsive Design */
 
 @media (max-width:990px) {
     .headline {
@@ -327,35 +358,12 @@ html {
     }
 }
 
-
-
 @media (max-width:850px) {
     .headline {
         font-size: 3.4rem;
     }
-
-    .horizontal-container img {
-        width: 100vw;
-        height: 70vh;
-        object-fit: cover;
-    }
-
-    .container-fluid .horizontal-section {
-        padding: 0;
-    }
 }
 
-@media (max-width: 795px) {
-
-    .container-fluid .service-content .service-title {
-        font-size: 2.4rem;
-    }
-
-    /* .pin-spacer{
-        height: 600px;
-        padding: 0px 0px 0px !important;
-    } */
-}
 
 @media (max-width: 768px) {
     .logo-img {
@@ -368,10 +376,6 @@ html {
 
     .headline {
         font-size: 2.8rem;
-    }
-
-    .container-fluid .service-content {
-        height: auto;
     }
 }
 
@@ -394,6 +398,28 @@ html {
 @media (max-width: 415px) {
     .headline {
         font-size: 2rem;
+    }
+
+    .work-title {
+        font-size: 1.4rem;
+        text-align: left;
+    }
+
+    .marquee-content span {
+        font-size: .8rem;
+        margin-right: 2rem;
+    }
+
+    .digital-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .digital-item-number {
+        font-size: 1.8rem;
+    }
+
+    .digital-item-text {
+        font-size: 1.2rem;
     }
 }
 
