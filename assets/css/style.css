@@ -14,17 +14,14 @@
 }
 
 /* header section */
-/* .container-fluid {
-    background-color: var(--white-color);
-    height: 5rem;
-} */
 
 .logo {
     display: flex;
 }
 
 .logo-img {
-    width: 3rem;
+    padding-top: 1rem;
+    width: 6rem;
 }
 
 .logo-text {
@@ -148,7 +145,7 @@
 
 .option-btn.active,
 .option-btn:hover {
-    color: #e42320;
+    color: var(--primary-color);
 }
 
 .nav-controls {
@@ -167,7 +164,7 @@
 }
 
 .continue-btn {
-    background: #e42320;
+    background: var(--primary-color);
     color: #000;
     border-radius: 12px;
     padding: 0.6rem 1.5rem;
@@ -277,7 +274,7 @@
     font-weight: 600;
     font-size: 1.25rem;
     color: var(--text-color);
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 
