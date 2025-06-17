@@ -98,13 +98,80 @@
         </div>
     </section>
 
-     <!-- Zoom Image Section -->
-    <div class="container-fluid mb-5 pb-5 mt-5">
-        <div class="zoom">
-            <img src="assets/images/image-1.jpg" alt="Zoom Image">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
         </div>
 
-    
+
+        <!-- carosel -->
+        <section class="carousel-section">
+            <!-- Indicators -->
+            <div class="carousel-indicators-custom" id="customIndicators">
+                <button class="active" data-index="0">UI/UX</button>
+                <button data-index="1">Web Development</button>
+                <button data-index="2">SEO</button>
+                <button data-index="3">Branding</button>
+            </div>
+
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-text">
+                            <h1>UI/UX Design</h1>
+                            <p>Your design shouldn’t just look good — it should feel right. Our UI/UX service transforms clicks into connections with clean, modern, and user-focused designs that guide users naturally. Ready to turn your website or app into something people love to use?
+
+</p>
+                        </div>
+                        <div class="carousel-image w-100">
+                            <img src="assets/images/ui ux.png" alt="UI/UX">
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-text">
+                            <h1>Web Development</h1>
+                            <p>Modern, responsive, and scalable websites crafted with care.</p>
+                        </div>
+                        <div class="carousel-image w-100">
+                            <img src="assets/images/web.png" alt="Web Development">
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-text">
+                            <h1>SEO Services</h1>
+                            <p>Boost your visibility and rank higher on search engines.</p>
+                        </div>
+                        <div class="carousel-image w-100">
+                            <img src="assets/images/seo.png" alt="SEO">
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-text">
+                            <h1>Branding</h1>
+                            <p>Build a memorable and strong brand presence in the market.</p>
+                        </div>
+                        <div class="carousel-image w-100">
+                            <img src="assets/images/media.png" alt="Branding">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
 
 
         <!-- Service Section-->
@@ -147,6 +214,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <section class=" container digital-section mt-5 pt-5 mb-5 pb-5">
             <h2 class="mb-5">
@@ -193,7 +262,38 @@
             </div>
         </section>
 
-       
+        <section id="brand-parallax" class="position-relative overflow-hidden"
+            style="min-height:100vh; width:100vw; background:linear-gradient(120deg,#ffc3c7 0%,#ffd8db 100%); display:flex; align-items:center; justify-content:center;">
+            <!-- Floating icons -->
+            <img src="assets/images/seo.png" class="parallax-icon icon-1" alt="Rocket"
+                style="width:200px; position:absolute; left:12vw; top:14vh; opacity:0.7;">
+            <img src="assets/images/media.png" class="parallax-icon icon-2" alt="Sparkles"
+                style="width:280px; position:absolute; right:12vw; top:30vh; opacity:0.7;">
+            <img src="assets/images/digital.png" class="parallax-icon icon-3" alt="100"
+                style="width:220px; position:absolute; left:18vw; bottom:14vh; opacity:0.7;">
+            <img src="assets/images/ui.png" class="parallax-icon icon-4" alt="Fire"
+                style="width:350px; position:absolute; right:15vw; bottom:9vh; opacity:0.9;">
+            <!-- Main content -->
+            <div class="brand-parallax-content text-center w-100" style="position:relative; z-index:2;">
+                <span class="d-inline-block mb-4 px-4 py-2 rounded-pill fw-bold"
+                    style="background:#e11d48; color:#fff; letter-spacing:2px; font-size:1rem;">
+                    EVERY BRAND HAS A PLACE HERE
+                </span>
+                <h2 class="fw-bold mb-2 parallax-title" style="color:#b91c1c; font-size:3.2rem; letter-spacing:-1px;">
+                    Big or Small, New or Known
+                </h2>
+                <h5 class="mb-4 parallax-subtitle" style="color:#7f1d1d; font-weight:700; font-size:1.7rem;">
+                    Digital Mugavari Helps You Grow
+                </h5>
+                <p class=" mx-auto parallax-desc" style="max-width:700px; color:#a83232;">
+                    Every brand has a story worth telling and a future worth building.<br>
+                    No matter where you are in your journey – thriving, plateauing, or just starting out –<br>
+                    we’re here to help you grow, scale, and reinvent for what’s next.
+                </p>
+            </div>
+        </section>
+
+
 
 
 

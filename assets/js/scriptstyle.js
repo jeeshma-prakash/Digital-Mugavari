@@ -152,3 +152,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer.observe(target);
 });
+
+
+
+  const indicators = document.querySelectorAll('#customIndicators button');
+  const track = document.getElementById('carouselTrack');
+  let currentIndex = 0;
+
+  // Move to slide
+  function goToSlide(index) {
+    currentIndex = index;
+    const slideWidth = window.innerWidth;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+
+    indicators.forEach(btn => btn.classList.remove('active'));
+    indicators[index].classList.add('active');
+
+    animateSlide(index);
+  }
+
+  // Animate entry using GSAP
+  function animateSlide(index) {
+    const slide = track.children[index];
+    const text = slide.querySelector('.carousel-text');
+    const image = slide.querySelector('.carousel-image');
+
+    gsap.fromTo(text, { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 1 });
+    gsap.fromTo(image, { x: 100, opacity: 0 }, { x: 0, opacity: 1, duration: 1 });
+  }
+
+  // Manual click navigation
+  indicators.forEach(btn => {
+    btn.addEventListener('click', () => {
+      goToSlide(parseInt(btn.dataset.index));
+    });
+  });
+
+  // Auto Slide
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % indicators.length;
+    goToSlide(currentIndex);
+  }, 5000); // Change every 5 seconds
+
+  // Initial load animation
+  window.addEventListener('load', () => {
+    animateSlide(0);
+  });
