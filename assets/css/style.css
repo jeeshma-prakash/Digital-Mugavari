@@ -429,7 +429,7 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            padding: 16px;
+            padding: 10px;
             background: #fff;
             z-index: 10;
         }
@@ -445,6 +445,7 @@
 
         .carousel-indicators li.active {
             color: #e00;
+            text-decoration: underline;
         }
 
         .carousel-track {
@@ -497,8 +498,8 @@
         }
 
         .carousel-slide .image img {
-            max-width: 90%;
-            max-height: 70vh;
+            max-width: 80%;
+            max-height: 60vh;
             object-fit: contain;
             border-radius: 12px;
         }
@@ -512,6 +513,10 @@
 
             .carousel-slide .text {
                 padding-right: 0;
+            }
+            .carousel-slide .image img{
+                max-width: 60%;
+                max-height: 50vh;
             }
         }
 
