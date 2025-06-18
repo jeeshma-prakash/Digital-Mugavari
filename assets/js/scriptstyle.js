@@ -111,26 +111,7 @@
 
 
     
-$(window).scroll(function () {
-  var scrollTop = $(window).scrollTop();
-  var docHeight = $(document).height();
-  var windowHeight = $(window).height();
-  var scrollBottom = docHeight - (scrollTop + windowHeight);
 
-  var scale;
-
-  if (scrollBottom < 200) {
-    // Zoom out near bottom of page
-    scale = Math.max(1, 1.3 - (200 - scrollBottom) / 300); // smoothly reduce
-  } else {
-    // Zoom in during normal scroll
-    scale = Math.min(1.3, 1 + scrollTop / 1000);
-  }
-
-  $('.zoom img').css({
-    transform: "scale(" + scale + ")"
-  });
-});
 
 
 
@@ -155,50 +136,80 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  const indicators = document.querySelectorAll('#customIndicators button');
-  const track = document.getElementById('carouselTrack');
-  let currentIndex = 0;
 
-  // Move to slide
-  function goToSlide(index) {
-    currentIndex = index;
-    const slideWidth = window.innerWidth;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
+ const track = document.getElementById('track');
+        const indicators = document.querySelectorAll('.carousel-indicators li');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+        const slideWidth = 100;
 
-    indicators.forEach(btn => btn.classList.remove('active'));
-    indicators[index].classList.add('active');
+        function animateSlide(index) {
+            const slide = slides[index];
+            const heading = slide.querySelector('.text h2');
+            const para = slide.querySelector('.text p');
+            const button = slide.querySelector('.text a');
+            const image = slide.querySelector('.image img');
 
-    animateSlide(index);
-  }
+            // Kill previous animations
+            gsap.killTweensOf([heading, para, button, image]);
 
-  // Animate entry using GSAP
-  function animateSlide(index) {
-    const slide = track.children[index];
-    const text = slide.querySelector('.carousel-text');
-    const image = slide.querySelector('.carousel-image');
+            gsap.set([heading, para, button], { opacity: 0, y: 40 });
+            gsap.set(image, { opacity: 0, scale: 0.9 });
 
-    gsap.fromTo(text, { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 1 });
-    gsap.fromTo(image, { x: 100, opacity: 0 }, { x: 0, opacity: 1, duration: 1 });
-  }
+            const tl = gsap.timeline();
+            tl.to(heading, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
+                .to(para, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.6")
+                .to(button, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.6");
 
-  // Manual click navigation
-  indicators.forEach(btn => {
-    btn.addEventListener('click', () => {
-      goToSlide(parseInt(btn.dataset.index));
-    });
-  });
+            gsap.to(image, {
+                opacity: 1,
+                scale: 1.3,
+                duration: 1.5,
+                ease: "power2.out"
+            });
+        }
 
-  // Auto Slide
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % indicators.length;
-    goToSlide(currentIndex);
-  }, 5000); // Change every 5 seconds
+        function moveToSlide(index, animate = true) {
+            currentIndex = index;
 
-  // Initial load animation
-  window.addEventListener('load', () => {
-    animateSlide(0);
-  });
+            if (animate) {
+                track.style.transition = "transform 0.8s ease";
+            } else {
+                track.style.transition = "none";
+            }
 
+            track.style.transform = `translateX(-${index * slideWidth}%)`;
+
+            animateSlide(index % 5);
+            indicators.forEach(i => i.classList.remove('active'));
+            indicators[currentIndex % 5].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentIndex++;
+            moveToSlide(currentIndex);
+
+            if (currentIndex === totalSlides - 1) {
+                setTimeout(() => moveToSlide(0, false), 850);
+            }
+        }
+
+        indicators.forEach((btn, idx) => {
+            btn.addEventListener('click', () => {
+                currentIndex = idx;
+                moveToSlide(currentIndex);
+                resetAutoplay();
+            });
+        });
+
+        let autoplay = setInterval(nextSlide, 5000);
+        function resetAutoplay() {
+            clearInterval(autoplay);
+            autoplay = setInterval(nextSlide, 5000);
+        }
+
+        moveToSlide(0);
 
   // STICKY SECTION WITH GSAP AND INTERSECTION OBSERVER
 gsap.registerPlugin(ScrollTrigger);

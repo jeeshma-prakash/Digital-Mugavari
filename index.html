@@ -99,6 +99,8 @@
         </div>
     </section>
 
+    <section>
+
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -108,87 +110,91 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button>
         </div>
+        <div class="carousel">
+            <ul class="carousel-indicators">
+                <li data-index="0" class="active">UI/UX</li>
+                <li data-index="1">Web Development</li>
+                <li data-index="2">Branding</li>
+                <li data-index="3">SEO</li>
+                <li data-index="4">Influencer</li>
+            </ul>
 
-
-        <!-- carosel -->
-        <section class="carousel-section">
-            <!-- Indicators -->
-            <div class="carousel-indicators-custom" id="customIndicators">
-                <button class="active" data-index="0">UI/UX</button>
-                <button data-index="1">Web Development</button>
-                <button data-index="2">SEO</button>
-                <button data-index="3">Branding</button>
-            </div>
-
-            <!-- Carousel -->
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <!-- Slide 1 -->
-                    <div class="carousel-slide" data-effect="fade-in">
-                        <div class="carousel-text">
-                            <h1>UI/UX Design</h1>
-                            <p>Your design shouldn’t just look good — it should feel right. Our UI/UX service transforms
-                                clicks into connections with clean, modern, and user-focused designs that guide users
-                                naturally. Ready to turn your website or app into something people love to use?
-
-                            </p>
-                        </div>
-                        <div class="carousel-image w-100">
-                            <img src="assets/images/ui ux.png" alt="UI/UX">
-                        </div>
+            <div class="carousel-track" id="track">
+                <!-- Original Slides -->
+                <div class="carousel-slide">
+                    <div class="text">
+                        <h2>UI/UX Design</h2>
+                        <p>Your design shouldn’t just look good — it should feel right. Our UI/UX service transforms
+                            clicks into connections with clean, modern, and user-focused designs that guide users
+                            naturally. Ready to turn your website or app into something people love to use?
+                        </p>
+                        <a href="#">Learn More</a>
                     </div>
-
-                    <!-- Slide 2 -->
-                    <div class="carousel-slide" data-effect="slide-up">
-                        <div class="carousel-text">
-                            <h1>Web Development</h1>
-                            <p>Your ideas deserve more than a template. We build fast, responsive, and custom-coded
-                                websites that don’t just look good—they perform. From landing pages to full-scale
-                                platforms, our development brings your vision to life with clean code, smooth
-                                functionality, and powerful results. Ready to build something impactful?
-
-                            </p>
-                        </div>
-                        <div class="carousel-image w-100">
-                            <img src="assets/images/web.png" alt="Web Development">
-                        </div>
+                    <div class="image"><img src="assets/images/ui ux.png" /></div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="text">
+                        <h2>Web Development</h2>
+                        <p>Your ideas deserve more than a template. We build fast, responsive, and custom-coded
+                            websites that don’t just look good—they perform. From landing pages to full-scale
+                            platforms, our development brings your vision to life with clean code, smooth
+                            functionality, and powerful results. Ready to build something impactful?
+                        </p>
+                        <a href="#">Learn More</a>
                     </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-slide" data-effect="zoom-in">
-                        <div class="carousel-text">
-                            <h1>SEO Services</h1>
-                            <p>What’s the point of a great website if no one sees it? Our SEO service helps your brand
-                                rise above the noise—getting you found on Google, driving real traffic, and turning
-                                visits into customers. From keyword strategy to on-page optimization, we help you grow
-                                organically and stay ahead of the competition.
-
-                            </p>
-                        </div>
-                        <div class="carousel-image w-100">
-                            <img src="assets/images/seo.png" alt="SEO">
-                        </div>
+                    <div class="image"><img src="assets/images/Web-dev.png" /></div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="text">
+                        <h2>Branding</h2>
+                        <p>Your brand is more than a logo — it’s the story people remember. We craft bold,
+                            consistent, and memorable branding that connects with your audience at every touchpoint.
+                            From strategy to visuals, we help you stand out, stay relevant, and leave a lasting
+                            impression. Ready to build a brand that speaks for itself?</p>
+                        <a href="#">Learn More</a>
                     </div>
-
-                    <!-- Slide 4 -->
-                    <div class="carousel-slide" data-effect="slide-left">
-                        <div class="carousel-text">
-                            <h1>Branding</h1>
-                            <p>Your brand is more than a logo — it’s the story people remember. We craft bold,
-                                consistent, and memorable branding that connects with your audience at every touchpoint.
-                                From strategy to visuals, we help you stand out, stay relevant, and leave a lasting
-                                impression. Ready to build a brand that speaks for itself?</p>
-                        </div>
-                        <div class="carousel-image w-100">
-                            <img src="assets/images/digital.png" alt="Branding">
-                        </div>
+                    <div class="image"><img src="assets/images/brand.png" /></div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="text">
+                        <h2>SEO</h2>
+                        <p>What’s the point of a great website if no one sees it? Our SEO service helps your brand
+                            rise above the noise—getting you found on Google, driving real traffic, and turning
+                            visits into customers. From keyword strategy to on-page optimization, we help you grow
+                            organically and stay ahead of the competition.</p>
+                        <a href="#">Learn More</a>
                     </div>
+                    <div class="image"><img src="assets/images/seo.png" /></div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="text">
+                        <h2>Influencer Marketing</h2>
+                        <p>Influence that drives results. We connect your brand with the right voices to spark real
+                            engagement, build trust, and turn followers into loyal customers.
+
+                        </p>
+                        <a href="#">Learn More</a>
+                    </div>
+                    <div class="image"><img src="assets/images/influencer.png" /></div>
+                </div>
+
+                <!-- Duplicate Slide for Seamless Loop -->
+                <div class="carousel-slide">
+                    <div class="text">
+                        <h2>UI/UX Design</h2>
+                        <p>Your design shouldn’t just look good — it should feel right. Our UI/UX service transforms
+                            clicks into connections with clean, modern, and user-focused designs that guide users
+                            naturally. Ready to turn your website or app into something people love to use?</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                    <div class="image"><img src="assets/images/ui ux.png" /></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
 
-         <section class="sticky">
+        <section class="sticky">
             <div class="sticky__box">
                 <p> To put it simply, you can team up with our experts—or even a full-scale crew on a short-term or
                     long-term basis to increase your online visibility, drive targeted traffic, and turn clicks into
@@ -275,7 +281,7 @@
             </div>
         </section>
 
-         <!-- Service Section-->
+        <!-- Service Section-->
         <section class="container work-section mt-5 mb-5 pt-5 pb-5">
             <div class="container work-content text-center">
                 <h2 class="work-title text-wrap">
