@@ -424,6 +424,9 @@
             display: flex;
             flex-direction: column;
         }
+        .button-carousel{
+            display: none !important;
+        }
 
         .carousel-indicators {
             display: flex;
@@ -444,7 +447,7 @@
         }
 
         .carousel-indicators li.active {
-            color: #e00;
+            color: var(--primary-color);
             text-decoration: underline;
         }
 
@@ -469,7 +472,7 @@
         }
 
         .carousel-slide .text h2 {
-            color: #e00;
+            color: var(--primary-color);
             margin-bottom: 23px;
             font-size: 3rem;
         }
@@ -485,7 +488,7 @@
         .carousel-slide .text a {
             display: inline-block;
             padding: 10px 20px;
-            background: #e00;
+            background: var(--primary-color);
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -553,7 +556,7 @@
   height: 100%;
   border-radius: 22px;
   transform: translate(-50%, -50%);
-  background-color: rgb(221, 0, 0);
+  background-color: var(--primary-color);
 }
 .sticky p {
   position: relative;
