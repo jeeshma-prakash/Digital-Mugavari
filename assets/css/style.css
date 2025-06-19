@@ -529,6 +529,21 @@ html {
         max-height: 50vh;
     }
 }
+@media (max-width: 500px) {
+    .carousel-slide .text h2 {
+    
+    margin-bottom: 23px;
+    font-size: 2rem;
+}
+.carousel-slide .text p {
+    font-size: 1rem; 
+}
+.carousel-indicators li {
+    font-weight: bold;
+    font-size: .8rem;
+}
+
+}
 
 .approach-section {
     padding-top: 1.5rem !important;
@@ -606,6 +621,18 @@ section,
         opacity: 0;
         filter: blur(6px);
       }
+    }
+
+     @media (max-width: 699px) {
+        .sticky p {
+   
+        font-size: 2rem;
+        line-height: 1.175;
+        font-weight: 600;
+        z-index: 10;
+        
+}
+        
     }
 
 .scroll-wrapper {
@@ -760,7 +787,7 @@ section,
     @media (max-width: 768px) {
         .stuck-grid {
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(4, 25svh);
+            grid-template-rows: repeat(4, 35svh);
         }
 
         .grid-item {
@@ -773,6 +800,7 @@ section,
     min-height: 90vh;
     /* background: linear-gradient(to bottom, #000, #222); */
     background: black;
+    margin: 0;
     /* color: #4b4b4b;
     display: flex;
     justify-content: center;
@@ -798,6 +826,38 @@ section,
       opacity: 0;
       transform: translateY(30px);
     }
+
+    @media (max-width: 768px) {
+        .next-section h3 {
+    
+            padding: 4rem;
+            font-size: 2rem;
+            text-align: justify;
+    
+        }
+    }
+
+     @media (max-width: 500px) {
+        .next-section h3 {
+    
+            padding: 4rem;
+            font-size: 1.7rem;
+            text-align:justify;
+    
+        }
+    }
+
+     @media (max-width: 395px) {
+        .next-section h3 {
+    
+            padding: 4rem;
+            font-size: 1.5rem;
+            text-align: justify;
+    
+        }
+    }
+
+
 
 
   .magic-section {
