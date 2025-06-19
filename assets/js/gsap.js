@@ -113,3 +113,39 @@
       ease: "power2.out"
     }, "-=0.5");
   });
+
+
+  
+
+//   last section
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.timeline({
+  scrollTrigger: {
+    trigger: ".magic-section",
+    start: "top 85%", // when top of section reaches 85% of viewport height
+    toggleActions: "play none none none", // only play once
+  },
+  defaults: { ease: "power2.out" }
+})
+  .from(".pre-text", { y: -30, opacity: 0, duration: 1 })
+  .from(".magic-word", { scale: 0.6, opacity: 0, duration: 1 }, "-=0.3")
+  .from(".post-text", { y: 30, opacity: 0, duration: 1 }, "-=0.4");
+
+
+   window.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".next-section h3", {
+      scrollTrigger: {
+        trigger: ".next-section",
+        start: "top 85%",
+        toggleActions: "play none none none",
+        once: true
+      },
+      opacity: 0,
+      y: 40,
+      duration: 1,
+      ease: "power2.out"
+    });
+  });
