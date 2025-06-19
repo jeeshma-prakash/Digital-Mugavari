@@ -107,6 +107,43 @@
         serviceDiv.appendChild(btn);
       });
     }
+let lastScrollTop = window.scrollY;
+let openTimeout;
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const scrollPosition = window.innerHeight + scrollTop;
+  const documentHeight = document.documentElement.scrollHeight;
+
+  // Scrolling down
+  if (scrollTop > lastScrollTop) {
+    if (scrollPosition >= documentHeight - 5) {
+      // Clear previous timer (if any)
+      clearTimeout(openTimeout);
+
+      // Set 2-second delay to open widget
+      openTimeout = setTimeout(() => {
+        if (!box.classList.contains("show")) {
+          openWidget();
+        }
+      }, 1000);
+    }
+  }
+
+  // Scrolling up
+  if (scrollTop < lastScrollTop) {
+    clearTimeout(openTimeout); // cancel pending open if scrolling up
+    if (box.classList.contains("show")) {
+      closeWidget();
+    }
+  }
+
+  lastScrollTop = scrollTop;
+});
+
+
+
+
 
 
 
