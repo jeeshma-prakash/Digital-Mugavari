@@ -126,7 +126,7 @@ window.addEventListener("scroll", () => {
         if (!box.classList.contains("show")) {
           openWidget();
         }
-      }, 1000);
+      }, );
     }
   }
 

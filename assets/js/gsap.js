@@ -1,3 +1,71 @@
+ 
+
+ 
+ 
+ const services = document.querySelectorAll(".service-item");
+    const finalContainer = document.getElementById("finalMessage");
+    const lines = finalContainer.querySelectorAll(".final-line");
+
+    const directions = [
+      { x: -200 },
+      { x: 200 },
+      { y: -200 },
+      { y: 200 },
+      { x: -200, y: -200 },
+      { x: 200, y: 200 },
+    ];
+
+    let tl = gsap.timeline();
+
+    // Animate service items one-by-one
+    services.forEach((el, i) => {
+      const dir = directions[i % directions.length];
+      tl.fromTo(el,
+        { opacity: 0, scale: 0.5, ...dir },
+        {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          ease: "back.out(1.7)"
+        })
+        .to(el, {
+          opacity: 0,
+          duration: 0.3,
+          delay: 0.2,
+          ease: "power1.inOut"
+        });
+    });
+
+    // Show the final message container
+    tl.to(finalContainer, {
+      opacity: 1,
+      duration: 0.5
+    });
+
+    // Animate lines one by one
+    lines.forEach((line, index) => {
+      tl.to(line, {
+        opacity: 1,
+        y: -10,
+        duration: 0.7,
+        ease: "power2.out"
+      }, "+=0.2");
+    });
+
+    // Exit preloader and show main site
+    tl.to(".preloader-overlay", {
+      opacity: 0,
+      duration: 1,
+      delay: 2,
+      onComplete: () => {
+        document.querySelector(".preloader-overlay").style.display = "none";
+        document.querySelector(".main-site").style.display = "block";
+        document.body.style.overflow = "auto";
+      }
+    });
+
 // gsap
   window.addEventListener("DOMContentLoaded", () => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });

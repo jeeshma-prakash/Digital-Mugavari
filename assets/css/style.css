@@ -23,6 +23,67 @@ html {
     scroll-behavior: smooth;
 }
 
+/* preloader */
+
+.preloader-overlay {
+      position: fixed;
+      inset: 0;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999 !important;
+    }
+
+    .service-item {
+      position: absolute;
+      font-size: 2rem;
+      font-weight: 600;
+      color: white;
+      opacity: 0;
+    }
+
+    .final-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      opacity: 0;
+    }
+
+    .final-line {
+      opacity: 0;
+      margin: 0.5rem 0;
+    }
+
+    .final-line.first {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .final-line.middle {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .final-line.last {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #ccc;
+    }
+
+    .main-site {
+      display: none;
+      padding: 2rem;
+      background: white;
+      color: #070707;
+      text-align: center;
+    }
+
 /* header section */
 
 .logo {
@@ -94,21 +155,23 @@ html {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #1c1b1b;
-    color: #ccc;
+    background-color: #ffffff22;
+    backdrop-filter: blur(10px);
+    color: #000000;
     border-radius: 1.5rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
     display: flex;
     align-items: center;
-    z-index: 9999;
+    z-index: 9998;
     cursor: pointer;
     font-size: 0.95rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .widget-toggle i {
-    background: #1c1b1b;
-    color: #ffffff;
+    background-color: #ffffff22;
+    backdrop-filter: blur(10px);
+    color: #000000;
     padding: 15px;
     border-radius: 30%;
 }
@@ -118,8 +181,9 @@ html {
     bottom: 80px;
     left: 50%;
     transform: translateX(-50%) scale(0);
-    background-color: #111;
-    color: #fff;
+    background-color: #ffffff22;
+    backdrop-filter: blur(10px);
+    color: #000000;
     border-radius: 24px;
     width: 90%;
     max-width: 700px;
@@ -138,18 +202,19 @@ html {
 }
 
 .widget-box h5 {
-    font-weight: 600;
+    font-weight: 100;
     font-size: 1.5rem;
 }
 
 .option-btn {
     background: transparent;
     border: none;
-    color: #ccc;
+    color: #000000;
     text-align: left;
     padding: 12px 0;
     width: 100%;
     font-size: 1rem;
+    font-weight: 500;
     border-bottom: 1px solid #333;
     cursor: pointer;
 }
@@ -166,17 +231,22 @@ html {
 }
 
 .circle-btn {
-    background: #1c1b1b;
+    background-color: #ffffff1e;
+    backdrop-filter: blur(10px);
+    color: #000000;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     padding: 0.8rem;
     border-radius: 12px;
-    color: #fff;
+    /* color: #fff; */
     border: none;
     cursor: pointer;
 }
 
 .continue-btn {
-    background: var(--primary-color);
-    color: #000;
+    background-color: #ffffff1e;
+    backdrop-filter: blur(10px);
+    color: #000000;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     padding: 0.6rem 1.5rem;
     border: none;
@@ -188,7 +258,7 @@ html {
     background-color: #222;
     border: 1px solid #333;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-control::placeholder {
