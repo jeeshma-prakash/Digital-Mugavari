@@ -146,149 +146,160 @@ html {
 
 /* floating widget */
 
-.widget-section {
-    font-family: 'Poppins', sans-serif;
-}
+ .widget-section {
+      font-family: 'Poppins', sans-serif;
+    }
 
-.widget-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ffffff22;
-    backdrop-filter: blur(10px);
-    color: #000000;
-    border-radius: 1.5rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    z-index: 9998;
-    cursor: pointer;
-    font-size: 0.95rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
+    .widget-wrapper {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9998;
+      transition: all 0.4s ease-in-out;
+      width: auto;
+    }
 
-.widget-toggle i {
-    background-color: #ffffff22;
-    backdrop-filter: blur(10px);
-    color: #000000;
-    padding: 15px;
-    border-radius: 30%;
-}
+    .widget-wrapper.expand {
+      bottom: 80px;
+      width: 90%;
+      max-width: 700px;
+    }
 
-.widget-box {
-    position: fixed;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
-    background-color: #ffffff22;
-    backdrop-filter: blur(10px);
-    color: #000000;
-    border-radius: 24px;
-    width: 90%;
-    max-width: 700px;
-    padding: 2rem;
-    z-index: 9998;
-    transition: transform 0.3s ease;
-}
+    .widget-toggle {
+      background-color: #ffffff22;
+      backdrop-filter: blur(10px);
+      color: #000000;
+      border-radius: 1.5rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.274);
+      transition: opacity 0.3s ease;
+    }
 
-.widget-box.show {
-    transform: translateX(-50%) scale(1);
-}
+    .widget-wrapper.expand .widget-toggle {
+      opacity: 0;
+      pointer-events: none;
+    }
 
-.widget-box.hide {
-    display: none !important;
-    /* Ensure fully hidden */
-}
+    .widget-toggle i {
+      /* background-color: #ffffff22;
+      backdrop-filter: blur(10px); */
+      color: #000000;
+      padding: 15px;
+      border-radius: 30%;
+      transition: transform 0.3s ease;
+    }
 
-.widget-box h5 {
-    font-weight: 100;
-    font-size: 1.5rem;
-}
+    .widget-wrapper.expand .widget-toggle i {
+      transform: rotate(90deg);
+    }
 
-.option-btn {
-    background: transparent;
-    border: none;
-    color: #000000;
-    text-align: left;
-    padding: 12px 0;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 500;
-    border-bottom: 1px solid #333;
-    cursor: pointer;
-}
+    .widget-box {
+      background-color: #ffffff22;
+      backdrop-filter: blur(10px);
+      color: #000000;
+      border-radius: 24px;
+      padding: 2rem;
+      z-index: 9998;
+      transform: scale(0);
+      transform-origin: bottom center;
+      transition: transform 0.4s ease-in-out;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.129);
+    }
 
-.option-btn.active,
-.option-btn:hover {
-    color: var(--primary-color);
-}
+    .widget-box.show {
+      transform: scale(1);
+    }
 
-.nav-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-}
+    .widget-box.hide {
+      display: none !important;
+    }
 
-.circle-btn {
-    background-color: #ffffff1e;
-    backdrop-filter: blur(10px);
-    color: #000000;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    padding: 0.8rem;
-    border-radius: 12px;
-    /* color: #fff; */
-    border: none;
-    cursor: pointer;
-}
+    .widget-box h5 {
+      font-weight: 100;
+      font-size: 1.5rem;
+    }
 
-.continue-btn {
-    background-color: #ffffff1e;
-    backdrop-filter: blur(10px);
-    color: #000000;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    padding: 0.6rem 1.5rem;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-}
+    .option-btn {
+      background: transparent;
+      border: none;
+      color: #000000;
+      text-align: left;
+      padding: 12px 0;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid #333;
+      cursor: pointer;
+    }
 
-.form-control {
-    background-color: #222;
-    border: 1px solid #333;
-    color: white;
-    margin-bottom: 1.5rem;
-}
+    .option-btn.active,
+    .option-btn:hover {
+      color: rgb(226, 2, 2);
+    }
 
-.form-control::placeholder {
-    color: #888;
-}
+    .nav-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
 
-.hide {
-    display: none;
-}
+    .circle-btn,
+    .continue-btn {
+      background-color: #ffffff1e;
+      backdrop-filter: blur(10px);
+      color: #000000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
 
-/* Step 3 service options as grid - 2 columns on md+, 1 on smaller */
-#serviceOptions {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
-}
+    .circle-btn {
+      padding: 0.8rem;
+    }
 
-@media (min-width: 768px) {
+    .form-control {
+      background-color: #ffffff1e;
+      backdrop-filter: blur(10px);
+      border: 0.5px solid #33333338;
+      color: white;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+    }
+
+    .form-control::placeholder {
+      color: #888;
+    }
+
+    .hide {
+      display: none;
+    }
+
     #serviceOptions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      #serviceOptions {
         grid-template-columns: 1fr 1fr;
-    }
+      }
 
-    /* Optional: add some spacing inside buttons */
-    #serviceOptions .option-btn {
+      #serviceOptions .option-btn {
         padding-left: 1rem;
+      }
     }
-}
-
-
 
 /* Work Section */
 .work-section {
