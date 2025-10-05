@@ -157,79 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
- const track = document.getElementById('track');
-        const indicators = document.querySelectorAll('.carousel-indicators li');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-        let currentIndex = 0;
-        const slideWidth = 100;
-
-        function animateSlide(index) {
-            const slide = slides[index];
-            const heading = slide.querySelector('.text h2');
-            const para = slide.querySelector('.text p');
-            const button = slide.querySelector('.text a');
-            const image = slide.querySelector('.image img');
-
-            // Kill previous animations
-            gsap.killTweensOf([heading, para, button, image]);
-
-            gsap.set([heading, para, button], { opacity: 0, y: 40 });
-            gsap.set(image, { opacity: 0, scale: 0.9 });
-
-            const tl = gsap.timeline();
-            tl.to(heading, { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
-                .to(para, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.6")
-                .to(button, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.6");
-
-            gsap.to(image, {
-                opacity: 1,
-                scale: 1.3,
-                duration: 1.5,
-                ease: "power2.out"
-            });
-        }
-
-        function moveToSlide(index, animate = true) {
-            currentIndex = index;
-
-            if (animate) {
-                track.style.transition = "transform 0.8s ease";
-            } else {
-                track.style.transition = "none";
-            }
-
-            track.style.transform = `translateX(-${index * slideWidth}%)`;
-
-            animateSlide(index % 5);
-            indicators.forEach(i => i.classList.remove('active'));
-            indicators[currentIndex % 5].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentIndex++;
-            moveToSlide(currentIndex);
-
-            if (currentIndex === totalSlides - 1) {
-                setTimeout(() => moveToSlide(0, false), 850);
-            }
-        }
-
-        indicators.forEach((btn, idx) => {
-            btn.addEventListener('click', () => {
-                currentIndex = idx;
-                moveToSlide(currentIndex);
-                resetAutoplay();
-            });
-        });
-
-        let autoplay = setInterval(nextSlide, 5000);
-        function resetAutoplay() {
-            clearInterval(autoplay);
-            autoplay = setInterval(nextSlide, 5000);
-        }
-
-        moveToSlide(0);
 
   // STICKY SECTION WITH GSAP AND INTERSECTION OBSERVER
 gsap.registerPlugin(ScrollTrigger);
@@ -242,9 +169,9 @@ gsap.to(fillEl, {
   borderRadius: '10',
   scrollTrigger: {
     trigger: fillEl,
-    start: 'top 80%',
+    start: 'top 85%',
     end: 'bottom top',
-    scrub: 1.35,
+    scrub: 2.2,
     invalidateOnRefresh: true
   }
 });
@@ -261,7 +188,7 @@ gsap.to(fillEl, {
         setTimeout(() => {
           document.body.style.overflow = '';
           isLocked = false;
-        }, 1200); // Lock for 1.2 seconds
+        }, 1000); // Lock for 1.2 seconds
       }
     }
 

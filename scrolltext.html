@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovative Digital Solutions – Wheel Section</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e1607;           /* deep green background */
+      --panel:#0f1a08;        /* slightly different layer */
+      --card:#ffffff;         /* card background */
+      --muted:#6a6f63;        /* muted text */
+      --accent:#9fd23b;       /* lime accent */
+      --accent-2:#78b300;     /* darker lime */
+      --ring:#2c3a18;         /* ring outline */
+      --chip:#f4f6ef;         /* tech chip */
+    }
+
+    html,body{height:100%;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:"Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:#fff;
+    }
+
+    .solutions-section{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      background:radial-gradient(1200px 800px at 25% 50%, #16230a 0%, var(--bg) 60%);
+      padding:64px 24px;
+      position:relative;
+    }
+
+    .solutions-inner{
+      width:100%;
+      max-width:1220px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap:40px;
+    }
+
+    /* Left wheel */
+    .wheel-wrap{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:640px;
+    }
+
+    .wheel{
+      position:relative;
+      width:560px;
+      height:560px;
+      border-radius:50%;
+      background:radial-gradient(ellipse at center, rgba(159,210,59,0.06) 0%, rgba(159,210,59,0.02) 45%, rgba(159,210,59,0.0) 60%),
+                 radial-gradient(closest-side, #0c1506 68%, transparent 69%);
+      box-shadow: inset 0 0 0 2px rgba(159,210,59,0.08), 0 0 120px rgba(159,210,59,0.12);
+      border:1px solid rgba(159,210,59,0.18);
+    }
+    .wheel:before{
+      content:"";
+      position:absolute; inset:-28px; border-radius:50%;
+      background:conic-gradient(from 120deg, rgba(159,210,59,0.0), rgba(159,210,59,0.18) 30%, rgba(159,210,59,0.0) 60%);
+      filter:blur(18px);
+      z-index:0;
+    }
+    .wheel:after{
+      content:"";
+      position:absolute; inset:24px; border-radius:50%;
+      border:1px solid rgba(159,210,59,0.18);
+      box-shadow: inset 0 0 40px rgba(159,210,59,0.18);
+    }
+
+    .wheel-center{
+      position:absolute; inset:0; display:grid; place-items:center;
+    }
+    .wheel-badge{
+      width:156px; height:156px; border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, rgba(159,210,59,0.25), rgba(159,210,59,0.12) 40%, rgba(0,0,0,0.6) 80%);
+      display:grid; place-items:center; box-shadow:0 10px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .wheel-badge img{width:76px; height:76px; object-fit:contain; opacity:.95;}
+
+    .wheel-title{ position:absolute; width:80%; left:10%; text-align:left; }
+    .wheel-title h2{
+      margin:0;
+      font-weight:800;
+      font-size:64px;
+      line-height:1.05;
+      letter-spacing:-0.5px;
+    }
+    @media (max-width: 980px){ .wheel-title h2{ font-size:44px; } }
+
+    /* Circled steps */
+    .step{position:absolute; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#1a230e; color:#c8d1be; font-weight:800; letter-spacing:0.5px; font-size:16px; box-shadow:0 6px 18px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.04); transition:transform .35s ease, background .35s ease, color .35s ease, box-shadow .35s ease;} 
+    .step.active{background:var(--accent); color:#0b1506; transform:scale(1.28); box-shadow:0 10px 26px rgba(159,210,59,0.45), 0 0 0 6px rgba(159,210,59,0.18);} 
+
+    /* Placement around the wheel */
+    .step-1{ top:-18px; left:44%; }
+    .step-2{ right:-18px; top:44%; }
+    .step-3{ bottom:-18px; left:44%; }
+    .step-4{ left:-18px; top:44%; }
+    .step-5{ left:12%; top:12%; }
+    .step-6{ right:12%; bottom:12%; }
+
+    /* Right service cards */
+    .cards{ display:flex; flex-direction:column; gap:28px; }
+    .card{
+      position:relative; background:var(--card); color:#10130b; border-radius:18px; padding:28px 28px 36px; overflow:hidden; box-shadow:0 12px 28px rgba(0,0,0,0.18); will-change: transform, opacity;
+    }
+    .card + .card{ margin-left:24px; }
+    .card h3{ margin:0 0 8px; font-size:26px; font-weight:800; letter-spacing:-0.2px; }
+    .card p{ margin:0 0 22px; color:#495047; font-weight:500; }
+    .tech{ display:flex; gap:10px; flex-wrap:wrap; }
+    .chip{ background:var(--chip); color:#2c2f27; border:1px solid #e5ead8; border-radius:999px; padding:6px 12px; font-size:13px; font-weight:700; }
+    .big-number{ position:absolute; left:22px; bottom:-8px; font-family:"Syne", system-ui, sans-serif; font-weight:800; color:rgba(16,19,11,0.06); font-size:140px; line-height:1; pointer-events:none; }
+    .icon{ width:62px; height:62px; border-radius:12px; background:linear-gradient(180deg, rgba(159,210,59,0.15), rgba(159,210,59,0.05)); display:grid; place-items:center; margin-bottom:14px; }
+    .icon img{ width:38px; height:38px; object-fit:contain; filter:grayscale(100%) brightness(0.1) sepia(1) hue-rotate(52deg) saturate(3) contrast(0.8); }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .solutions-inner{ grid-template-columns: 1fr; }
+      .cards{ order:2; }
+      .wheel-wrap{ order:1; min-height:520px; }
+      .wheel{ width:480px; height:480px; }
+      .wheel-title{ position:static; margin-top:24px; }
+      .wheel-title h2{ text-align:center; }
+    }
+    @media (max-width: 560px){
+      .wheel{ width:360px; height:360px; }
+      .solutions-section{ padding:40px 16px; }
+      .card h3{ font-size:22px; }
+      .big-number{ font-size:110px; }
+    }
+
+    /* Motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important;}
+    }
+  </style>
+</head>
+<body>
+  <section class="solutions-section" id="solutions">
+    <div class="solutions-inner">
+      <div class="wheel-wrap">
+        <div class="wheel" id="wheel">
+          <div class="step step-1">01</div>
+          <div class="step step-2">02</div>
+          <div class="step step-3">03</div>
+          <div class="step step-4">04</div>
+          <div class="step step-5">05</div>
+          <div class="step step-6">06</div>
+
+          <div class="wheel-center">
+            <div class="wheel-badge">
+              <img id="wheelIcon" src="assets/images/digital.png" alt="Center Icon" />
+            </div>
+          </div>
+          <div class="wheel-title" aria-hidden="true">
+            <h2>Innovative<br/>Digital Solutions<br/>by Plexify</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card card-1" data-icon="assets/images/web.png">
+          <div class="icon"><img src="assets/images/web.png" alt="Website" /></div>
+          <h3>Website Development</h3>
+          <p>We create responsive, modern, and user-friendly websites tailored to your business needs.</p>
+          <div class="tech">
+            <span class="chip">WordPress</span>
+            <span class="chip">Laravel</span>
+            <span class="chip">React</span>
+          </div>
+          <div class="big-number">01</div>
+        </article>
+        <article class="card card-2" data-icon="assets/images/seo.png">
+          <div class="icon"><img src="assets/images/seo.png" alt="Marketing" /></div>
+          <h3>Digital Marketing</h3>
+          <p>Promote your brand with modern digital strategies tailored to your audience.</p>
+          <div class="tech">
+            <span class="chip">WordPress</span>
+            <span class="chip">Laravel</span>
+            <span class="chip">React</span>
+          </div>
+          <div class="big-number">02</div>
+        </article>
+        <article class="card card-3" data-icon="assets/images/media.png">
+          <div class="icon"><img src="assets/images/media.png" alt="Social Media" /></div>
+          <h3>Social Media Marketing</h3>
+          <p>Boost your online presence across all major social platforms.</p>
+          <div class="tech">
+            <span class="chip">WordPress</span>
+            <span class="chip">Laravel</span>
+            <span class="chip">React</span>
+          </div>
+          <div class="big-number">03</div>
+        </article>
+        <article class="card card-4" data-icon="assets/images/seo.webp">
+          <div class="icon"><img src="assets/images/seo.webp" alt="SEO Services" /></div>
+          <h3>SEO Services</h3>
+          <p>Improve your search visibility and drive organic traffic to your site.</p>
+          <div class="tech">
+            <span class="chip">On-page</span>
+            <span class="chip">Technical</span>
+            <span class="chip">Backlinks</span>
+          </div>
+          <div class="big-number">04</div>
+        </article>
+        <article class="card card-5" data-icon="assets/images/digital.png">
+          <div class="icon"><img src="assets/images/digital.png" alt="Email Marketing" /></div>
+          <h3>Email Marketing</h3>
+          <p>Engage your audience through personalized and effective email campaigns.</p>
+          <div class="tech">
+            <span class="chip">Automation</span>
+            <span class="chip">Segmentation</span>
+            <span class="chip">A/B Test</span>
+          </div>
+          <div class="big-number">05</div>
+        </article>
+        <article class="card card-6" data-icon="assets/images/influencer.png">
+          <div class="icon"><img src="assets/images/influencer.png" alt="Influencer" /></div>
+          <h3>Influencer Marketing</h3>
+          <p>Leverage influencers to boost brand credibility and sales.</p>
+          <div class="tech">
+            <span class="chip">Outreach</span>
+            <span class="chip">UGC</span>
+            <span class="chip">Tracking</span>
+          </div>
+          <div class="big-number">06</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
+    (function(){
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Subtle idle rotation for the wheel, continues while pinned
+      gsap.to("#wheel", { rotate: 10, duration: 26, ease: "none", repeat: -1, yoyo: true });
+
+      // Pin the section and sequence card reveals to emulate the original
+      const master = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".solutions-section",
+          start: "top top",
+          end: "+=320%",
+          scrub: 0.7,
+          pin: true,
+          anticipatePin: 1
+        }
+      });
+
+      // Initial entrance
+      master.from(".wheel", { scale: 0.92, opacity: 0, duration: 0.8, ease: "power3.out" }, 0)
+            .from([".step-1", ".step-2", ".step-3", ".step-4", ".step-5", ".step-6"], { opacity: 0, y: 12, stagger: 0.06, duration: 0.4 }, 0.1)
+            .from([".card-1", ".card-2", ".card-3", ".card-4", ".card-5", ".card-6"], { x: 40, opacity: 0, stagger: 0.12, duration: 0.6, ease: "power2.out" }, 0.15);
+
+      // Progressively focus each card and step
+      function focusCard(cardSel, stepIndex){
+        const all = [".card-1", ".card-2", ".card-3", ".card-4", ".card-5", ".card-6"];
+        const others = all.filter(s=> s!==cardSel);
+        master.to(others, { opacity: 0.55, scale: 0.98, duration: 0.35, ease: "power1.out" })
+              .to(cardSel, { opacity: 1, scale: 1.0, y: -6, duration: 0.45, ease: "power2.out" }, "<")
+              .add(() => setActiveStep(stepIndex))
+              .add(() => swapCenterIcon(cardSel));
+      }
+
+      function setActiveStep(i){
+        const steps = gsap.utils.toArray('.step');
+        steps.forEach((el, idx)=>{
+          el.classList.toggle('active', idx === i);
+        });
+      }
+
+      function swapCenterIcon(cardSel){
+        const icon = document.getElementById('wheelIcon');
+        const card = document.querySelector(cardSel);
+        if(!icon || !card) return;
+        const src = card.getAttribute('data-icon');
+        if(src){
+          gsap.to(icon, { opacity: 0, scale: 0.85, duration: 0.2, ease: 'power2.out', onComplete(){
+            icon.src = src;
+            gsap.to(icon, { opacity: 1, scale: 1, duration: 0.25, ease: 'power2.out' });
+          }});
+        }
+      }
+
+      focusCard('.card-1', 0);
+      focusCard('.card-2', 1);
+      focusCard('.card-3', 2);
+      focusCard('.card-4', 3);
+      focusCard('.card-5', 4);
+      focusCard('.card-6', 5);
+
+      // Gentle float throughout scroll
+      gsap.to([".card-1", ".card-2", ".card-3", ".card-4", ".card-5", ".card-6"], {
+        yPercent: (index)=> index * -2,
+        ease: "none",
+        scrollTrigger: { trigger: ".solutions-section", start: "top top", end: "+=320%", scrub: 0.5 }
+      });
+
+      // Soft glow to the currently active step
+      const glow = gsap.timeline({ repeat: -1, yoyo: true });
+      glow.to('.step.active', { boxShadow: '0 0 0 0 rgba(159,210,59,0.55)', duration: 1.2, ease: 'sine.inOut' });
+
+      // Ensure initial active
+      setActiveStep(0);
+      swapCenterIcon('.card-1');
+    })();
+  </script>
+</body>
+</html>
+
+
