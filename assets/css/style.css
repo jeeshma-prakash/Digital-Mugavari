@@ -9,8 +9,10 @@
   font-style: normal;
 }
 
+
 body {
   font-family: 'Ppmori', Arial, sans-serif;
+  scroll-behavior: smooth;
 }
 * {
     margin: 0;
@@ -95,7 +97,7 @@ html {
 
 .logo-img {
     padding-top: 1rem;
-    width: 3rem;
+    width: 8rem;
 }
 
 .logo-text {
@@ -129,8 +131,8 @@ html {
 }
 
 .tagline {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 600;
     margin-top: 10px;
     color: var(--text-color);
 }
@@ -180,6 +182,12 @@ html {
       font-weight: 600;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.274);
       transition: opacity 0.3s ease;
+    }
+
+    /* white glow applied once after first scroll to highlight the toggle */
+    .widget-toggle.glow {
+      box-shadow: 0 0 8px 6px rgba(255, 255, 255, 0.637), 0 6px 18px rgba(0,0,0,0.18) !important;
+      transition: box-shadow .35s ease-in-out;
     }
 
     .widget-wrapper.expand .widget-toggle {
@@ -239,7 +247,7 @@ html {
 
     .option-btn.active,
     .option-btn:hover {
-      color: rgb(226, 2, 2);
+      color: rgb(255, 255, 255);
     }
 
     .nav-controls {
@@ -259,6 +267,12 @@ html {
       border: none;
       font-weight: 600;
       cursor: pointer;
+    }
+
+    /* Hide the continue button on the first selection step (step2). We still keep the element present for ARIA and JS
+       but visually hide it so selection immediately proceeds to step3 when a main option is clicked. */
+    #step2 .continue-btn {
+      display: none !important;
     }
 
     .circle-btn {
@@ -301,12 +315,37 @@ html {
       }
     }
 
+    /* summary banner on the final form showing the user's selections */
+    .selection-summary {
+      background: rgba(255,255,255,0.06);
+      color: #303030da;
+      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .selection-summary .sel-main {
+      color: #181818;
+      background: rgba(255,255,255,0.08);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    .selection-summary .sel-service {
+      color: #1b1b1b;
+    }
+
 /* Work Section */
 .work-section {
     background-color: black;
     /* border-radius: 25px; */
-    padding: 2rem;
+    /* padding: 2rem; */
     /* margin-bottom: 2rem; */
+    padding-top: 4rem;
 }
 
 .work-content {
@@ -319,11 +358,11 @@ html {
 
 .work-title {
     /* font-family: "Poppins", sans-serif; */
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     font-weight: 700;
     text-align: justify;
     margin-bottom: 1.5rem;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
     color: #777777;
 }
 
@@ -723,7 +762,7 @@ section,
     }
 
 .scroll-wrapper {
-    height: 1400vh;
+    height: 1500vh;
     /* Long enough to cover all animations */
     position: relative;
 }
@@ -732,8 +771,8 @@ section,
     position: sticky;
     background: #000;
     top: 0;
-    height: 100vh;
-    perspective: 1200px;
+    height: 150vh;
+    perspective: 1000px;
     transform-style: preserve-3d;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -808,45 +847,15 @@ section,
     }
 
     .grid-item:nth-of-type(12) {
-        animation-range: 85% 135%;
+        animation-range: 85% 175%;
     }
 
-    .grid-item:nth-of-type(13) {
-        animation-range: 90% 140%;
-    }
-
-    .grid-item:nth-of-type(14) {
-        animation-range: 95% 145%;
-    }
-
-    .grid-item:nth-of-type(15) {
-        animation-range: 100% 150%;
-    }
-
-    .grid-item:nth-of-type(16) {
-        animation-range: 105% 155%;
-    }
-
-    .grid-item:nth-of-type(17) {
-        animation-range: 110% 160%;
-    }
-
-    .grid-item:nth-of-type(18) {
-        animation-range: 115% 165%;
-    }
-
-    .grid-item:nth-of-type(19) {
-        animation-range: 120% 170%;
-    }
 
     /* Grid placement pattern */
     .grid-item:nth-of-type(1),
     .grid-item:nth-of-type(4),
     .grid-item:nth-of-type(7),
-    .grid-item:nth-of-type(10),
-    .grid-item:nth-of-type(13),
-    .grid-item:nth-of-type(16),
-    .grid-item:nth-of-type(19) {
+    .grid-item:nth-of-type(10) {
         grid-area: 2 / 2 / span 1 / span 2;
         /* center */
     }
@@ -854,9 +863,7 @@ section,
     .grid-item:nth-of-type(2),
     .grid-item:nth-of-type(5),
     .grid-item:nth-of-type(8),
-    .grid-item:nth-of-type(11),
-    .grid-item:nth-of-type(14),
-    .grid-item:nth-of-type(17) {
+    .grid-item:nth-of-type(11) {
         grid-area: 2 / 1 / span 1 / span 1;
         /* left */
     }
@@ -864,9 +871,7 @@ section,
     .grid-item:nth-of-type(3),
     .grid-item:nth-of-type(6),
     .grid-item:nth-of-type(9),
-    .grid-item:nth-of-type(12),
-    .grid-item:nth-of-type(15),
-    .grid-item:nth-of-type(18) {
+    .grid-item:nth-of-type(12) {
         grid-area: 2 / 4 / span 1 / span 1;
         /* right */
     }
@@ -874,8 +879,9 @@ section,
     /* Responsive grid override */
     @media (max-width: 768px) {
         .stuck-grid {
-            grid-template-columns: repeat(2, 1fr);
+            /* grid-template-columns: repeat(2, 1fr); */
             grid-template-rows: repeat(4, 35svh);
+            height: 100vh;
         }
 
         .grid-item {
@@ -1181,7 +1187,7 @@ section,
       position: relative;
       background-color: #000;
       /* Use min-height so small devices can grow naturally */
-      min-height: 60vh;
+      min-height: 40vh;
       padding: 6rem 1.5rem 4rem;
       display: block;
     }
@@ -1223,10 +1229,7 @@ section,
     }
 
     /* Flexible columns that wrap on small screens */
-    .contact-column {
-      flex: 1 1 420px; /* grow, shrink, basis */
-      min-width: 260px;
-    }
+   
 
     .contact-card {
       background: rgba(255, 255, 255, 0.075);
@@ -1238,12 +1241,17 @@ section,
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      width: 100%;
     }
+      
 
     .contact-card:hover {
       border: 1px solid red;
       transition: 0.3s;
+    }
+    .contact-card:hover span, .contact-card:focus span{
+      transition: 0.3s;
+      transform: scale(1.8);
+      
     }
 
     /* Make form elements stretch to full width and increase tap targets */

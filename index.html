@@ -14,6 +14,22 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
         rel="stylesheet">
+    <style>
+        /* Character reveal for the work title (scoped to avoid affecting other elements) */
+        .work-title.char-reveal {
+            white-space: pre-wrap;
+            /* preserve line breaks and spacing */
+            display: inline-block;
+            /* allow per-character inline-block spans to animate */
+        }
+
+        .work-title.char-reveal span {
+            opacity: 0.18;
+            /* initial faded state */
+            display: inline-block;
+            will-change: opacity, color, transform;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,30 +42,31 @@
         </div>
     </div>
     <!-- header section -->
-     <section class="bg-banner">
-    <header>
-        <div class="container-fluid d-flex align-items-center justify-content-between  section-navbar">
-            <div class="logo d-flex align-items-center">
-                <img class="logo-img" src="assets/images/Digital Mugavari Logo.png" alt="Digital Mugavari Logo">
-                <!-- <h6 class="logo-text ms-2 mb-0">DIGITAL MUGAVARI</h6> -->
+    <section class="bg-banner">
+        <header>
+            <div class="container-fluid d-flex align-items-center justify-content-between  section-navbar">
+                <div class="logo d-flex align-items-center">
+                    <img class="logo-img" src="assets/images/DM Web Logo.png" alt="Digital Mugavari Logo">
+                    <!-- <h6 class="logo-text ms-2 mb-0">DIGITAL MUGAVARI</h6> -->
+                </div>
+                <!-- <a href="#" class="connect-link">Connect With Us</a> -->
             </div>
-            <a href="#" class="connect-link">Connect With Us</a>
-        </div>
-    </header>
+        </header>
 
-    <!-- hero section -->
-    <section class="container hero-section mt-5 mb-5 pb-5">
-        <div class="hero-content">
-            <div class="tagline">Clicks. Leads. Conversions.</div>
-            <div><h1 class="headline">
-                From Strategy <br>
-                to <span>SEO</span>, We’re Your <br>
-                Brand’s Loudest Voice.</h1>
+        <!-- hero section -->
+        <section class="container hero-section mt-5 mb-5 pb-5">
+            <div class="hero-content">
+                <div class="tagline">Clicks. Leads. Conversions.</div>
+                <div>
+                    <h1 class="headline">
+                        From Strategy <br>
+                        to <span>SEO</span>, We’re Your <br>
+                        Brand’s Loudest Voice.</h1>
+                </div>
             </div>
-        </div>
+        </section>
     </section>
-     </section>
-      <!-- <section class=" container digital-section mt-5 pt-5 mb-5 pb-5">
+    <!-- <section class=" container digital-section mt-5 pt-5 mb-5 pb-5">
         <h2 class="mb-5">
             Empowering brands with a digital address, we’ve helped businesses grow through innovative strategies and
             precise optimization.
@@ -93,16 +110,13 @@
             </div>
         </div>
     </section> -->
-       <!-- Service Section-->
+    <!-- Service Section-->
     <section class="container-fluid work-section ">
         <div class="container work-content text-center">
-            <h2 class="work-title text-wrap">
-                Your brand deserves more than recognition, it deserves real, lasting growth. At 
-Digital Mugavari, we don’t just follow trends, we set them. Whether you’re 
-building, scaling, or reinven ng, we make your brand unstoppable. 
+            <h2 class="work-title text-wrap char-reveal">
+                Your brand deserves more than recognition, it deserves real, lasting growth. At Digital Mugavari, we don’t just follow trends, we set them. Whether you’re building, scaling, or reinventing, we make your brand unstoppable.
             </h2>
             <br><br>
-             
             <br>
             <div class="marquee-wrapper">
                 <div class="marquee-container">
@@ -111,28 +125,18 @@ building, scaling, or reinven ng, we make your brand unstoppable.
                         <span>For Growing Brands</span>
                         <span>For Established Leaders </span>
                         <span>For Brands Ready to Rebuild</span>
-                        <!-- <span>Motion Design</span>
-                        <span>Content Strategy</span>
-                        <span>Analytics & Insights</span>
-                        <span>Influencer Marketing</span>
-                        <span>Performance Optimization</span> -->
 
                         <!-- Duplicate for seamless effect -->
                         <span>For Ambitious Startups</span>
                         <span>For Growing Brands</span>
                         <span>For Established Leaders </span>
                         <span>For Brands Ready to Rebuild</span>
-                        <!-- <span>Motion Design</span>
-                        <span>Content Strategy</span>
-                        <span>Analytics & Insights</span>
-                        <span>Influencer Marketing</span>
-                        <span>Performance Optimization</span> -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-     <!-- Sticky Section-->
+    <!-- Sticky Section-->
     <!-- <section class="sticky" style="background:linear-gradient(#ececec,#c4c3c3);">
         <div class="sticky__box">
             <p> To put it simply, you can team up with our experts or even a full-scale crew on a short-term or
@@ -143,7 +147,7 @@ building, scaling, or reinven ng, we make your brand unstoppable.
         </div>
     </section> -->
 
-   
+
 
 
     <section class="svc" id="svc">
@@ -208,13 +212,15 @@ building, scaling, or reinven ng, we make your brand unstoppable.
                     <div>
                         <h3>Digital Marketing</h3>
                         <p>End-to-end marke ng campaigns designed to amplify your brand presence online. </p>
-                        <div class="chips"><span>PPC campaigns</span><span>performance marketingl</span><span>content marketing</span></div>
+                        <div class="chips"><span>PPC campaigns</span><span>performance marketingl</span><span>content
+                                marketing</span></div>
                     </div>
                     <div class="cardNum">02</div>
                 </article>
 
                 <article class="card" data-title="SEO Optimization"
-                    data-desc="Smart strategies to boost rankings, a ract organic traffic, and improve discoverability." data-icon="phone">
+                    data-desc="Smart strategies to boost rankings, a ract organic traffic, and improve discoverability."
+                    data-icon="phone">
                     <div class="ico">
                         <img src="assets/images/icons8-window-search-100.png" alt="phone">
                     </div>
@@ -227,33 +233,38 @@ building, scaling, or reinven ng, we make your brand unstoppable.
                 </article>
 
                 <article class="card" data-title="Branding "
-                    data-desc="Building powerful brand iden es that spark recogni on, trust, and long-term impact." data-icon="brand">
+                    data-desc="Building powerful brand iden es that spark recogni on, trust, and long-term impact."
+                    data-icon="brand">
                     <div class="ico">
                         <img src="assets/images/icons8-user-100.png" alt="seo">
                     </div>
                     <div>
                         <h3>Branding </h3>
                         <p>Building powerful brand iden es that spark recogni on, trust, and long-term impact. </p>
-                        <div class="chips"><span>brand identity</span><span>logo </span><span>brand awareness </span></div>
+                        <div class="chips"><span>brand identity</span><span>logo </span><span>brand awareness </span>
+                        </div>
                     </div>
                     <div class="cardNum">04</div>
                 </article>
 
                 <article class="card" data-title="Influencer Marketing"
-                    data-desc="Collaborating with trusted voices to expand reach, build trust, and drive engagement. " data-icon="seo">
+                    data-desc="Collaborating with trusted voices to expand reach, build trust, and drive engagement. "
+                    data-icon="seo">
                     <div class="ico">
                         <img src="assets/images/icons8-popular-woman-100.png" alt="seo">
                     </div>
                     <div>
                         <h3>Influencer Marketing</h3>
                         <p>Collaborating with trusted voices to expand reach, build trust, and drive engagement. </p>
-                        <div class="chips"><span>brand collaborations</span><span>social media influencer campaigns</span></div>
+                        <div class="chips"><span>brand collaborations</span><span>social media influencer
+                                campaigns</span></div>
                     </div>
                     <div class="cardNum">05</div>
                 </article>
 
                 <article class="card" data-title="Graphic Design"
-                    data-desc="Creative designs that shape identities and make your brand unforgetable. " data-icon="ads">
+                    data-desc="Creative designs that shape identities and make your brand unforgetable. "
+                    data-icon="ads">
                     <div class="ico">
                         <img src="assets/images/icons8-wacom-tablet-100.png" alt="ads">
                     </div>
@@ -318,7 +329,7 @@ building, scaling, or reinven ng, we make your brand unstoppable.
                     <form onsubmit="event.preventDefault(); alert('Submitted!');">
                         <input type="text" class="form-control" placeholder="Name" required />
                         <input type="email" class="form-control" placeholder="Email address" required />
-                        <input type="number" class="form-control" placeholder="Phone number" required />
+                        <input type="tel" class="form-control" placeholder="Phone number" required />
                         <input type="text" class="form-control" placeholder="Tell us more (optional)" />
                         <div class="nav-controls">
                             <button class="circle-btn" onclick="goToStep('step3')" type="button">&#8592;</button>
@@ -329,129 +340,58 @@ building, scaling, or reinven ng, we make your brand unstoppable.
             </div>
         </div>
     </section>
-   
-
-    <!-- Service Section-->
-    <!-- <section class="container-fluid work-section  pt-5">
-        <div class="container work-content text-center">
-            <h2 class="work-title text-wrap">
-                Your brand deserves more than recognition, it deserves real, lasting growth. At 
-Digital Mugavari, we don’t just follow trends, we set them. Whether you’re 
-building, scaling, or reinven ng, we make your brand unstoppable. 
-            </h2>
-            <br><br>
-             
-            <br>
-            <div class="marquee-wrapper">
-                <div class="marquee-container">
-                    <div class="marquee-content">
-                        <span>For Ambitious Startups</span>
-                        <span>For Growing Brands</span>
-                        <span>For Established Leaders </span>
-                        <span>For Brands Ready to Rebuild</span>
-                       
-
-                      
-                        <span>For Ambitious Startups</span>
-                        <span>For Growing Brands</span>
-                        <span>For Established Leaders </span>
-                        <span>For Brands Ready to Rebuild</span>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Scroll wrapper to control when animation ends -->
     <div class="scroll-wrapper">
         <div class="stuck-grid">
             <!-- Add your 19 images -->
-            <div class="grid-item"><img src="assets/images/SEO.png" alt="1" /></div>
-            <div class="grid-item"><img src="assets/images/Analytics and Insights.png" alt="2" /></div>
-            <div class="grid-item"><img src="assets/images/Back- End Development.png" alt="3" /></div>
-            <div class="grid-item"><img src="assets/images/Branding.png" alt="4" /></div>
+            <div class="grid-item"><img src="assets/images/img-1.png" alt="1" /></div>
+            <div class="grid-item"><img src="assets/images/img-2.png" alt="2" /></div>
+            <div class="grid-item"><img src="assets/images/img-3.png" alt="3" /></div>
+            <div class="grid-item"><img src="assets/images/img-4.png" alt="4" /></div>
             <div class="grid-item"><img src="assets/images/Content Strategy.png" alt="5" /></div>
-            <div class="grid-item"><img src="assets/images/Graphic Design.png" alt="6" /></div>
-            <div class="grid-item"><img src="assets/images/UI UX Development.png" alt="7" /></div>
-            <div class="grid-item"><img src="assets/images/Social Media Management.png" alt="8" /></div>
-            <div class="grid-item"><img src="assets/images/SEO.png" alt="9" /></div>
-            <div class="grid-item"><img src="assets/images/Untitled-1.jpg" alt="10" /></div>
-            <div class="grid-item"><img src="assets/images/Branding.png" alt="11" /></div>
-            <div class="grid-item"><img src="assets/images/Analytics and Insights.png" alt="12" /></div>
-            <div class="grid-item"><img src="assets/images/Graphic Design.png" alt="13" /></div>
-            <!-- <div class="grid-item"><img src="assets/images/pic-4.png" alt="14" /></div>
-            <div class="grid-item"><img src="assets/images/pic-5.png" alt="15" /></div>
-            <div class="grid-item"><img src="assets/images/pic-6.png" alt="16" /></div>
-            <div class="grid-item"><img src="assets/images/pic-7.png" alt="17" /></div>
-            <div class="grid-item"><img src="assets/images/pic-8.png" alt="18" /></div>
-            <div class="grid-item"><img src="assets/images/pic-9.png" alt="19" /></div> -->
+            <div class="grid-item"><img src="assets/images/img-6.png" alt="6" /></div>
+            <div class="grid-item"><img src="assets/images/img-7.png" alt="7" /></div>
+            <div class="grid-item"><img src="assets/images/img-8.png" alt="8" /></div>
+            <div class="grid-item"><img src="assets/images/img-9.png" alt="9" /></div>
+            <div class="grid-item"><img src="assets/images/img-10.png" alt="10" /></div>
+            <div class="grid-item"><img src="assets/images/img-11.png" alt="11" /></div>
+            <div class="grid-item"><img src="assets/images/img-12.png" alt="12" /></div>
         </div>
     </div>
 
+    <section class="contact-section-main">
+        <div class=" contact-section">
+            <h1 class="contact-title">CONTACT</h1>
+            <div class="row" style="flex-direction: row;display: flex;gap: 4rem;justify-content: center;">
+                    <div class="col-md-3 contact-card">
+                        <div>
+                            <strong>Email us</strong><br>
+                            digitalmugavari@gmail.com
+                        </div>
+                        <span>↗</span>
+                    </div>
 
+                    <div class="col-md-3 contact-card">
+                        <div>
+                            <strong>Call us</strong><br>
+                           +91 88078 38134
+                        </div>
+                        <span>↗</span>
+                    </div>
 
-
-    <!-- <div class="next-section">
-        <h3>We’re real people committed to turning your ideas into reality — with trust, respect, and dedication at
-            every step, ensuring your needs are met completely and your success becomes our shared achievement.</h3>
-    </div> -->
-
-<section class="contact-section-main">
-<div class="contact-section">
-  <h1 class="contact-title">CONTACT</h1>
-  <div class="container position-relative">
-    <div class="row">
-      <!-- Left Side -->
-      <div class="col-lg-6 mb-4">
-        <!-- <button class="btn btn-dark mb-3">Contact</button> -->
-        <h3 class="get">Get in Touch</h3>
-        <p>Have questions or ready to transform your business with AI automation?</p>
-
-        <div class="contact-card">
-          <div>
-            <strong>Email us</strong><br>
-            johnnyk.jyoro@gmail.com
-          </div>
-          <span>↗</span>
+                    <div class="col-md-3 contact-card">
+                        <div>
+                            <strong>Our location</strong><br>
+                            Pondicherry, India
+                        </div>
+                        <span>↗</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="contact-card">
-          <div>
-            <strong>Call us</strong><br>
-            (509) 123-4567
-          </div>
-          <span>↗</span>
-        </div>
-
-        <div class="contact-card">
-          <div>
-            <strong>Our location</strong><br>
-            Crosby Street, NY, US
-          </div>
-          <span>↗</span>
-        </div>
-      </div>
-
-      <!-- Right Side -->
-      <div class="col-lg-6">
-        <form class="contact-form">
-          <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Name">
-          </div>
-          <div class="mb-3">
-            <input type="email" class="form-control" placeholder="Email">
-          </div>
-          <div class="mb-3">
-            <textarea class="form-control" rows="5" placeholder="Message"></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
+    </section>
 
 
 
@@ -563,9 +503,51 @@ building, scaling, or reinven ng, we make your brand unstoppable.
                 onEnterBack: () => setActive(i)
             });
         });
-
         // initial
         setActive(0);
+    </script>
+    <script>
+        // Character-by-character reveal for the service work title
+        (function () {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+            const el = document.querySelector('.work-title.char-reveal');
+            if (!el) return;
+
+            // preserve original text and split into characters, keeping whitespace
+            const text = el.textContent.trim();
+            el.textContent = '';
+
+            const chars = Array.from(text);
+            chars.forEach(ch => {
+                const span = document.createElement('span');
+                span.textContent = ch === ' ' ? '\u00A0' : ch;
+                el.appendChild(span);
+            });
+
+            // animate: fade up the characters as the section scrolls into view
+            gsap.registerPlugin(ScrollTrigger);
+            // smoother character reveal: animate from a small y-offset + faded opacity to final state
+            gsap.fromTo('.work-title.char-reveal span',
+                { opacity: 0.18, y: 12 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    color: '#dcdcdc',
+                    stagger: { each: 0.03, from: 'start' },
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: '.work-section',
+                        start: 'top 55%',
+                        end: 'bottom 80%',
+                        // use a numeric scrub for smoothing (0.5-0.8 gives a soft catch-up feel)
+                        scrub: 0.6,
+                        // Do NOT pin — keeps layout and other scripts the same
+                    }
+                }
+            );
+        })();
     </script>
 </body>
 

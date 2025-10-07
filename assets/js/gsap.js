@@ -1,7 +1,4 @@
- 
 
- 
- 
  const services = document.querySelectorAll(".service-item");
     const finalContainer = document.getElementById("finalMessage");
     const lines = finalContainer.querySelectorAll(".final-line");
@@ -57,7 +54,7 @@
     // Exit preloader and show main site
     tl.to(".preloader-overlay", {
       opacity: 0,
-      duration: 1,
+      duration: 2,
       delay: 2,
       onComplete: () => {
         document.querySelector(".preloader-overlay").style.display = "none";
